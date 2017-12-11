@@ -69,7 +69,7 @@ export default class ToyRobot {
 		}
 		let currentIndex = this.getCurrentIndexOfF();
 		currentIndex++;
-		this.f = this.directions[currentIndex] ? this.directions[currentIndex] : this.directions[0];
+		this.f = this.getDirection(currentIndex, 0);
 	}
 
 	left() {
@@ -78,7 +78,11 @@ export default class ToyRobot {
 		}
 		let currentIndex = this.getCurrentIndexOfF();
 		currentIndex--;
-		this.f = this.directions[currentIndex] ? this.directions[currentIndex] : this.directions[3];
+		this.f = this.getDirection(currentIndex, 3);
+	}
+
+	getDirection(currentIndex, defaultIndex) {
+		return this.directions[currentIndex] ? this.directions[currentIndex] : this.directions[defaultIndex]
 	}
 
 	isValidPosition(x, y) {
