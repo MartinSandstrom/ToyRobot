@@ -16,7 +16,7 @@ export default class ToyRobot {
 	place(x, y, f) {
 		this.x = x;
 		this.y = y;
-		if (this.directions.indexOf(f) > -1) {
+		if (this.directions.includes(f)) {
 			this.f = f;
 		} else {
 			throw Error('Invalid faceing');

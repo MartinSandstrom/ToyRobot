@@ -31,7 +31,7 @@ describe('ToyRobot - basic functions', () => {
 		expect(report).toBe(expectedReport);
 	});
 
-	it('can move left', () => {
+	it('can rotate left', () => {
 		toyRobot.left();
 		let expectedReport = 'F: WEST X: 1 Y: 1';
 		let report = toyRobot.report();
@@ -53,7 +53,7 @@ describe('ToyRobot - basic functions', () => {
 		expect(report).toBe(expectedReport);
 	});
 
-	it('can move right', () => {
+	it('can rotate right', () => {
 		toyRobot.right();
 		let expectedReport = 'F: EAST X: 1 Y: 1';
 		let report = toyRobot.report();
@@ -107,7 +107,7 @@ describe('ToyRobot - nothing allowed before placed', () => {
 			expect(e.message).toBe('ToyRobot has to be position before any other command can be used');
 		}
 	});
-	it('can not report if not placed', () => {
+	it('can not move if not placed', () => {
 		try {
 			let testToyRobot = new ToyRobot();
 			testToyRobot.move();
