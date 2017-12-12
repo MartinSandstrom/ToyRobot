@@ -9,6 +9,13 @@
     $ npm install
 ```
 
+### Run
+
+```console
+    $ npm start
+```
+
+
 ### Test
 
 ```console

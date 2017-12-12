@@ -1,5 +1,4 @@
-import ToyRobot from './toyRobot.js';
-
+const ToyRobot = require('./toyRobot');
 let toyRobot = {};
 
 describe('ToyRobot - basic functions', () => {
@@ -18,10 +17,29 @@ describe('ToyRobot - basic functions', () => {
 
 	it('throw error for invalid facing', () => {
 		try {
-			toyRobot.place(1, 1, 'NORTHs');
+			toyRobot.place(1, 1, 'RANDOM_FACEING');
 		}
 		catch (e) {
 			expect(e.message).toBe('Invalid faceing');
+		}
+	});
+
+	it('throw error for invalid position X', () => {
+		try {
+			toyRobot.place(0, 5, 'NORTH');
+		}
+		catch (e) {
+			expect(e.message).toBe('Invalid position');
+		}
+	});
+
+
+	it('throw error for invalid position Y', () => {
+		try {
+			toyRobot.place(5, 0, 'NORTH');
+		}
+		catch (e) {
+			expect(e.message).toBe('Invalid position');
 		}
 	});
 
@@ -84,7 +102,6 @@ describe('ToyRobot - basic functions', () => {
 	});
 
 	it('can move without falling off the grid', () => {
-
 		toyRobot.move();
 		toyRobot.move();
 		toyRobot.move();
@@ -104,7 +121,7 @@ describe('ToyRobot - nothing allowed before placed', () => {
 			testToyRobot.report();
 		}
 		catch (e) {
-			expect(e.message).toBe('ToyRobot has to be position before any other command can be used');
+			expect(e.message).toBe('ToyRobot has to be positioned before any other command can be used');
 		}
 	});
 	it('can not move if not placed', () => {
@@ -113,7 +130,7 @@ describe('ToyRobot - nothing allowed before placed', () => {
 			testToyRobot.move();
 		}
 		catch (e) {
-			expect(e.message).toBe('ToyRobot has to be position before any other command can be used');
+			expect(e.message).toBe('ToyRobot has to be positioned before any other command can be used');
 		}
 	});
 	it('can not go left if not placed', () => {
@@ -122,7 +139,7 @@ describe('ToyRobot - nothing allowed before placed', () => {
 			testToyRobot.left();
 		}
 		catch (e) {
-			expect(e.message).toBe('ToyRobot has to be position before any other command can be used');
+			expect(e.message).toBe('ToyRobot has to be positioned before any other command can be used');
 		}
 	});
 	it('can not go right if not placed', () => {
@@ -131,7 +148,7 @@ describe('ToyRobot - nothing allowed before placed', () => {
 			testToyRobot.right();
 		}
 		catch (e) {
-			expect(e.message).toBe('ToyRobot has to be position before any other command can be used');
+			expect(e.message).toBe('ToyRobot has to be positioned before any other command can be used');
 		}
 	});
 });

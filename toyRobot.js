@@ -1,4 +1,4 @@
-export default class ToyRobot {
+class ToyRobot {
 	constructor() {
 		this.grid = [
 			[1, 1, 1, 1, 1], //Y = 0  X = 0, 1, 2, 3, 4
@@ -14,18 +14,22 @@ export default class ToyRobot {
 	}
 
 	place(x, y, f) {
-		this.x = x;
-		this.y = y;
 		if (this.directions.includes(f)) {
 			this.f = f;
 		} else {
 			throw Error('Invalid faceing');
 		}
+		if (!this.isValidPosition(x, y)) {
+			throw Error('Invalid position');
+		}
+		this.x = x;
+		this.y = y;
+
 		this.hasBeenPlaced = true;
 	}
 
 	notPlacedError() {
-		throw Error('ToyRobot has to be position before any other command can be used');
+		throw Error('ToyRobot has to be positioned before any other command can be used');
 	}
 
 	report() {
@@ -41,22 +45,22 @@ export default class ToyRobot {
 		}
 		switch (this.f) {
 			case 'NORTH':
-				if (this.isValidPosition(this.x, this.y + 1)) {
+				if (this.isValidPosition(this.x, parseInt(this.y) + 1)) {
 					this.y++;
 				}
 				break;
 			case 'SOUTH':
-				if (this.isValidPosition(this.x, this.y - 1)) {
-					this.y++;
+				if (this.isValidPosition(this.x, parseInt(this.y) - 1)) {
+					this.y--;
 				}
 				break;
 			case 'WEST':
-				if (this.isValidPosition(this.x - 1, this.y)) {
-					this.x++;
+				if (this.isValidPosition(parseInt(this.x) - 1, this.y)) {
+					this.x--;
 				}
 				break;
 			case 'EAST':
-				if (this.isValidPosition(this.x + 1, this.y)) {
+				if (this.isValidPosition(parseInt(this.x) + 1, this.y)) {
 					this.x++;
 				}
 				break;
@@ -86,10 +90,12 @@ export default class ToyRobot {
 	}
 
 	isValidPosition(x, y) {
-		return this.grid[y] && this.grid[y][x];
+		return this.grid[x] && this.grid[x][y];
 	}
 
 	getCurrentIndexOfF() {
 		return this.directions.indexOf(this.f);
 	}
 }
+
+module.exports = ToyRobot;

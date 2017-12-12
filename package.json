@@ -4,7 +4,8 @@
 	"description": "",
 	"main": "toyRobot.js",
 	"scripts": {
-		"test": "jest --watch"
+		"test": "jest --watch",
+		"start": "node toyRobot-cli.js"
 	},
 	"keywords": [],
 	"author": "",
@@ -13,5 +14,8 @@
 		"babel-plugin-transform-decorators-legacy": "^1.3.4",
 		"babel-preset-es2015": "^6.24.1",
 		"jest": "^21.2.1"
+	},
+	"dependencies": {
+		"colors": "^1.1.2"
 	}
 }
