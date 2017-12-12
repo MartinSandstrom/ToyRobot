@@ -44,51 +44,51 @@ describe('ToyRobot - basic functions', () => {
 	});
 
 	it('can be send a report', () => {
-		let expectedReport = 'F: NORTH X: 1 Y: 1';
+		let expectedReport = '1,1,NORTH';
 		let report = toyRobot.report();
 		expect(report).toBe(expectedReport);
 	});
 
 	it('can rotate left', () => {
 		toyRobot.left();
-		let expectedReport = 'F: WEST X: 1 Y: 1';
+		let expectedReport = '1,1,WEST';
 		let report = toyRobot.report();
 		expect(report).toBe(expectedReport);
 
 		toyRobot.left();
-		expectedReport = 'F: SOUTH X: 1 Y: 1';
+		expectedReport = '1,1,SOUTH';
 		report = toyRobot.report();
 		expect(report).toBe(expectedReport);
 
 		toyRobot.left();
-		expectedReport = 'F: EAST X: 1 Y: 1';
+		expectedReport = '1,1,EAST';
 		report = toyRobot.report();
 		expect(report).toBe(expectedReport);
 
 		toyRobot.left();
-		expectedReport = 'F: NORTH X: 1 Y: 1';
+		expectedReport = '1,1,NORTH';
 		report = toyRobot.report();
 		expect(report).toBe(expectedReport);
 	});
 
 	it('can rotate right', () => {
 		toyRobot.right();
-		let expectedReport = 'F: EAST X: 1 Y: 1';
+		let expectedReport = '1,1,EAST';
 		let report = toyRobot.report();
 		expect(report).toBe(expectedReport);
 
 		toyRobot.right();
-		expectedReport = 'F: SOUTH X: 1 Y: 1';
+		expectedReport = '1,1,SOUTH';
 		report = toyRobot.report();
 		expect(report).toBe(expectedReport);
 
 		toyRobot.right();
-		expectedReport = 'F: WEST X: 1 Y: 1';
+		expectedReport = '1,1,WEST';
 		report = toyRobot.report();
 		expect(report).toBe(expectedReport);
 
 		toyRobot.right();
-		expectedReport = 'F: NORTH X: 1 Y: 1';
+		expectedReport = '1,1,NORTH';
 		report = toyRobot.report();
 		expect(report).toBe(expectedReport);
 	});
@@ -96,7 +96,7 @@ describe('ToyRobot - basic functions', () => {
 	it('can move', () => {
 
 		toyRobot.move();
-		let expectedReport = 'F: NORTH X: 1 Y: 2';
+		let expectedReport = '1,2,NORTH';
 		let report = toyRobot.report();
 		expect(report).toBe(expectedReport);
 	});
@@ -108,7 +108,7 @@ describe('ToyRobot - basic functions', () => {
 		toyRobot.move();
 		toyRobot.move();
 		toyRobot.move();
-		let expectedReport = 'F: NORTH X: 1 Y: 4';
+		let expectedReport = '1,4,NORTH';
 		let report = toyRobot.report();
 		expect(report).toBe(expectedReport);
 	});
@@ -158,7 +158,7 @@ describe('ToyRobot - examples', () => {
 	it('can run example A', () => {
 		toyRobot.place(0, 0, 'NORTH');
 		toyRobot.move();
-		let expectedReport = 'F: NORTH X: 0 Y: 1';
+		let expectedReport = '0,1,NORTH';
 		let report = toyRobot.report();
 		expect(report).toBe(expectedReport);
 	});
@@ -166,7 +166,7 @@ describe('ToyRobot - examples', () => {
 	it('can run example B', () => {
 		toyRobot.place(0, 0, 'NORTH');
 		toyRobot.left();
-		let expectedReport = 'F: WEST X: 0 Y: 0';
+		let expectedReport = '0,0,WEST';
 		let report = toyRobot.report();
 		expect(report).toBe(expectedReport);
 	});
@@ -177,7 +177,7 @@ describe('ToyRobot - examples', () => {
 		toyRobot.move();
 		toyRobot.left();
 		toyRobot.move();
-		let expectedReport = 'F: NORTH X: 3 Y: 3';
+		let expectedReport = '3,3,NORTH';
 		let report = toyRobot.report();
 		expect(report).toBe(expectedReport);
 	});

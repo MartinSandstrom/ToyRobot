@@ -36,7 +36,7 @@ class ToyRobot {
 		if (!this.hasBeenPlaced) {
 			return this.notPlacedError();
 		}
-		return `F: ${this.f} X: ${this.x} Y: ${this.y}`;
+		return `${this.x},${this.y},${this.f}`;
 	}
 
 	move() {
